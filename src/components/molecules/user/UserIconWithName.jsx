@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { useContext } from "react";
-import { UserContext } from "../../prividers/UserProvider";
+import { useRecoilValue } from "recoil";
+import { userState } from "../../../store/userState";
 
 export const UserIconWithName = (props) => {
   const { image, name } = props;
-  const { userInfo } = useContext(UserContext);
+  const userInfo = useRecoilValue(userState);
   const isAdmin = userInfo ? userInfo.isAdmin : false;
 
   return (
